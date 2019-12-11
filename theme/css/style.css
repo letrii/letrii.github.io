@@ -114,3 +114,11 @@ a {
     color: #5af78d!important;
 }
 
+@media(max-width:768px) {
+    .navbar-dark .navbar-brand {
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+}
