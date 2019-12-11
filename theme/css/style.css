@@ -1,5 +1,4 @@
 body {
-    /* background-color: #272937!important; */
     background-color: #3c4556!important;
 }
 
@@ -16,14 +15,16 @@ a {
 
 .bg-dark,
 #header .dropdown-menu {
-    /* background: linear-gradient(0deg, rgba(207,206,207,1) 0%, rgba(239,239,240,1) 100%); */
     background-color: #272937!important;
+}
+
+#header .bg-dark {
+    border-bottom: 0.5px solid #8c8c8c!important;
 }
 
 #header .dropdown-menu .dropdown-item,
 #header .navbar-brand .root,
 #header .navbar-brand .path {
-    /* color: #312e31!important; */
     color: #ff92cf!important;
 }
 
@@ -32,7 +33,6 @@ a {
 }
 
 #header #smallNav {
-    /* background: linear-gradient(0deg, rgba(207,206,207,1) 0%, rgba(239,239,240,1) 100%); */
     background-color: #272937!important;
 }
 
@@ -46,6 +46,7 @@ a {
 
 #left-sidebar .card {
     background-color: #262837!important;
+    border: 0.5px solid #8c8c8c!important;
 }
 
 #left-sidebar .card .title a {
@@ -71,8 +72,30 @@ a {
     padding: 0!important;
 }
 
+#left-sidebar .card .card-body .summary > p {
+    font-size: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 0.5rem!important;
+}
+
+#left-sidebar .card.article .card-body .summary > p {
+    font-size: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 0!important;
+}
+
 #left-sidebar .tags .badge:hover {
     opacity: 0.75;
+}
+
+#left-sidebar .card-body pre {
+    color: rgba(139, 233, 253, 1);
+    background-color: #0c0d13;
+    padding: 2rem;
 }
 
 #right-sidebar .title {
@@ -86,3 +109,4 @@ a {
 #right-sidebar #navTags a:hover {
     color: #5af78d!important;
 }
+
