@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://letrii.github.io/theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://letrii.github.io/theme/css/pygment.css">
+    <title>Sharing what I know</title>
+</head>
+
+<body>
+    <div id="header" class="container-fluid">
+        <nav class="navbar shadow navbar-expand-lg navbar-dark bg-dark pt-0 pb-0">
+            <a class="navbar-brand" href="/">
+                <span class="root">letrii@github.io:</span>
+                <span class="path">~/article/flask-render-html-va-nhung-bootstrap-4.html</span>
+            </a>
+        </nav>
+    </div>
+    
+    <div id="content" class="container-fluid mt-4 mb-4">
+        <div class="row">
+            <div id="left-sidebar" class="col-lg-10 col-md-12 col-sm-12">
+<div class="article card feed-card shadow mb-3">
+        <div class="card-body">
+            <div class="mb-1 title">
+                <a class="text-dark mt-0" href="https://letrii.github.io/article/flask-render-html-va-nhung-bootstrap-4.html">
+                    <h2 class="mt-0 mb-0">[FLASK] Render HTML và nhúng Bootstrap 4</h2>
+                </a>
+            </div>
+            <div class="summary"><p>Trong bài viết này sẽ hướng dẫn render <code>HTML</code> thay vì render <code>string</code> như bài trước và nhúng thư viện <code>Bootstrap 4</code>.</p></div>
+            <div class="tags mb-0">
+                    <a href="https://letrii.github.io/tag/python.html" class="badge badge-tag mr-1">#python</a>
+                    <a href="https://letrii.github.io/tag/flask.html" class="badge badge-tag mr-1">#flask</a>
+                    <a href="https://letrii.github.io/tag/html.html" class="badge badge-tag mr-1">#html</a>
+                    <a href="https://letrii.github.io/tag/css.html" class="badge badge-tag mr-1">#css</a>
+                    <a href="https://letrii.github.io/tag/js.html" class="badge badge-tag mr-1">#js</a>
+                    <a href="https://letrii.github.io/tag/jquery.html" class="badge badge-tag mr-1">#jquery</a>
+                    <a href="https://letrii.github.io/tag/bootstrap.html" class="badge badge-tag mr-1">#bootstrap</a>
+            </div>
+            <div class="clearfix">
+                <div class="float-left">
+                    <small>by</small>
+                            <small class="font-weight-bold">letrii</small>
+                    <small>·</small>
+                    <small class="text-muted">
+                        05/12/2019
+                    </small>
+                </div>
+            </div>
+            <hr>
+            <p>Phần trước <a href="https://letrii.github.io/article/xay-dung-website-chi-can-6-dong-voi-python.html">Xây dựng website chỉ cần 6 dòng với Python</a> chúng ta đã tìm hiểu cách xây dựng website nhưng chỉ dừng lại ở mức trả về cho người dùng chuỗi <code>Hello, World!</code>. Ở phần này, mình sẽ hướng dẫn trả về <code>HTML</code> và nhúng thư viện <code>Bootstrap 4</code> để làm cho website đẹp hơn. Để có thể hiểu được phần này, bạn nên có kiến thức về <code>HTML</code>.</p>
+<h3>Code</h3>
+<p>Mở file <code>hello.py</code> và chỉnh sử theo nội dung bên dưới:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Tạo thư mục <code>templates</code></p>
+<div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">templates</span>
+<span class="n">cd</span> <span class="n">templates</span>
+</pre></div>
+
+
+<p>Tạo tiếp file <code>index.html</code> với nội dung sau đây:</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>[FLASK] Render HTML và nhúng Bootstrap 4<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Hello, World!<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>Lúc này cấu trúc thư mục sẽ như sau:</p>
+<div class="highlight"><pre><span></span><span class="go">├── hello.py</span>
+<span class="go">└── templates</span>
+<span class="go">    └── index.html</span>
+</pre></div>
+
+
+<p>Chạy ứng dụng:</p>
+<div class="highlight"><pre><span></span><span class="go">flask run</span>
+</pre></div>
+
+
+<p>Kết quả:
+<img alt="first" src="/images/flask-template/first.png"></p>
+<p>Nếu bạn thấy chữ <code>Hello, World!</code> to và đậm hơn trước thì đã render <code>HTML</code> thành công rồi đó. Tiếp theo sẽ nhúng <code>Bootstrap 4</code> vào, mở file <code>index.html</code> và thay đổi nội dung:</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="c">&lt;!-- Required meta tags --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1 shrink-to-fit=no&quot;</span><span class="p">&gt;</span>
+
+        <span class="c">&lt;!-- Bootstrap CSS --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>[FLASK] Render HTML và nhúng Bootstrap 4<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Hello, World!<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+        <span class="c">&lt;!-- Optional JavaScript --&gt;</span>
+        <span class="c">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://code.jquery.com/jquery-3.2.1.slim.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>Tắt (<code>CTRL+C</code>) và chạy ứng dụng:</p>
+<div class="highlight"><pre><span></span><span class="go">flask run</span>
+</pre></div>
+
+
+<p>Kết quả:
+<img alt="first" src="/images/flask-template/second.png"></p>
+<p>Lúc này chữ <code>Hello, World!</code> đã khác với ở trên. Bạn có để ý là mỗi lần mình thay đổi code là phải tắt và chạy lại ứng dụng không? Để không phải tắt lại bạn chỉ cần gõ (nhớ tắt ứng dụng):</p>
+<div class="highlight"><pre><span></span><span class="go">export FLASK_ENVIRONMENT=development</span>
+<span class="go">flask run</span>
+</pre></div>
+
+
+<p>Kết quả:</p>
+<div class="highlight"><pre><span></span><span class="go"> * Serving Flask app &quot;hello.py&quot;</span>
+<span class="go"> * Environment: production</span>
+<span class="go">   WARNING: This is a development server. Do not use it in a production deployment.</span>
+<span class="go">   Use a production WSGI server instead.</span>
+<span class="go"> * Debug mode: off</span>
+<span class="go"> * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)</span>
+</pre></div>
+
+
+<p>Bạn thử thay đổi nội dung <code>Hello, World!</code> thành <code>Change the world!</code> hoặc bất cứ thứ gì bạn muốn trong file <code>index.html</code>. Quay trở lại trình duyệt và refresh lại trang.</p>
+<p>Hết, phần tiếp theo mình sẽ hướng dẫn truyền tham số vào <code>HTML</code>.</p>
+        </div>
+    </div>
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'whatiknowdisquscom';
+    var disqus_identifier = "whatiknowdisquscom";
+    var disqus_url = "https://letrii.github.io/article/flask-render-html-va-nhung-bootstrap-4.html";
+    var disqus_title = "[FLASK] Render HTML và nhúng Bootstrap 4";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view comments.</noscript>
+<!-- End Disqus -->
+            </div>
+            
+            <div id="right-sidebar" class="col-lg-2 col-md-12 col-sm-12">
+                <p class="font-weight-bold d-block mb-1 title">Latest tags</p>
+                <nav id="navTags" class="toc pl-0 pt-0">
+                    <nav class="nav nav-pills flex-column sidenav toc">
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/bootstrap.html">bootstrap (1)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/css.html">css (1)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/flask.html">flask (2)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/html.html">html (1)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/jquery.html">jquery (1)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/js.html">js (1)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/python.html">python (2)</a>
+                    </nav>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
