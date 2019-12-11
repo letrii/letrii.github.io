@@ -23,9 +23,12 @@ a {
 }
 
 #header .dropdown-menu .dropdown-item,
-#header .navbar-brand .root,
-#header .navbar-brand .path {
+#header .navbar-brand .root {
     color: #ff92cf!important;
+}
+
+#header .navbar-brand .path {
+    color: #d68101!important;
 }
 
 #header .navbar-dark .navbar-toggler-icon {
