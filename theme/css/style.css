@@ -95,7 +95,11 @@ a {
 #left-sidebar .card-body pre {
     color: rgba(139, 233, 253, 1);
     background-color: #0c0d13;
-    padding: 2rem;
+    padding: 1rem;
+}
+
+#left-sidebar .card-body img {
+    width: 100%;
 }
 
 #right-sidebar .title {
