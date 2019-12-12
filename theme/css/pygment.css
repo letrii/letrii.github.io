@@ -58,7 +58,7 @@
 .highlight .sr { color: #d88200 } /* Literal.String.Regex */
 .highlight .s1 { color: #d88200 } /* Literal.String.Single */
 .highlight .ss { color: #d88200 } /* Literal.String.Symbol */
-.highlight .bp { color: #111111 } /* Name.Builtin.Pseudo */
+.highlight .bp { color: #d88200 } /* Name.Builtin.Pseudo */
 .highlight .fm { color: #75af00 } /* Name.Function.Magic */
 .highlight .vc { color: #111111 } /* Name.Variable.Class */
 .highlight .vg { color: #111111 } /* Name.Variable.Global */
