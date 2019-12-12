@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://letrii.github.io/theme/css/style.css">
     <link rel="stylesheet" type="text/css" href="https://letrii.github.io/theme/css/pygment.css">
-    <title>Sharing what I know - bootstrap tag</title>
+    <title>Sharing what I know</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
         <nav class="navbar shadow navbar-expand-lg navbar-dark bg-dark pt-0 pb-0">
             <a class="navbar-brand" href="/">
                 <span class="root">letrii@github.io:</span>
-                <span class="path">~/</span>
+                <span class="path">~/article/airflow-luu-y-khi-su-dung.html</span>
             </a>
         </nav>
     </div>
@@ -26,22 +26,17 @@
     <div id="content" class="container-fluid mt-4 mb-4">
         <div class="row">
             <div id="left-sidebar" class="col-lg-10 col-md-12 col-sm-12">
-    <div class="card feed-card shadow mb-3">
+<div class="article card feed-card shadow mb-3">
         <div class="card-body">
             <div class="mb-1 title">
-                <a class="text-dark mt-0" href="https://letrii.github.io/article/flask-xay-dung-chuc-nang-dang-nhap.html">
-                    <h5 class="mt-0 mb-0">[FLASK] Xây dựng chức năng đăng nhập</h5>
+                <a class="text-dark mt-0" href="https://letrii.github.io/article/airflow-luu-y-khi-su-dung.html">
+                    <h2 class="mt-0 mb-0">[Airflow] Lưu ý khi sử dụng</h2>
                 </a>
             </div>
-            <div class="summary"><p>Xây dựng chức năng đăng nhập sử dụng thư viện <code>Bootstrap 4</code>.</p></div>
+            <div class="summary"><p>Những lưu ý, tip và trick khi sử dụng <code>Apache Airflow</code>.</p></div>
             <div class="tags mb-0">
                     <a href="https://letrii.github.io/tag/python.html" class="badge badge-tag mr-1">#python</a>
-                    <a href="https://letrii.github.io/tag/flask.html" class="badge badge-tag mr-1">#flask</a>
-                    <a href="https://letrii.github.io/tag/html.html" class="badge badge-tag mr-1">#html</a>
-                    <a href="https://letrii.github.io/tag/css.html" class="badge badge-tag mr-1">#css</a>
-                    <a href="https://letrii.github.io/tag/js.html" class="badge badge-tag mr-1">#js</a>
-                    <a href="https://letrii.github.io/tag/jquery.html" class="badge badge-tag mr-1">#jquery</a>
-                    <a href="https://letrii.github.io/tag/bootstrap.html" class="badge badge-tag mr-1">#bootstrap</a>
+                    <a href="https://letrii.github.io/tag/airflow.html" class="badge badge-tag mr-1">#airflow</a>
             </div>
             <div class="clearfix">
                 <div class="float-left">
@@ -49,42 +44,44 @@
                             <small class="font-weight-bold">letrii</small>
                     <small>·</small>
                     <small class="text-muted">
-                        12/12/2019
+                        15/12/2019
                     </small>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="card feed-card shadow mb-3">
-        <div class="card-body">
-            <div class="mb-1 title">
-                <a class="text-dark mt-0" href="https://letrii.github.io/article/flask-render-html-va-nhung-bootstrap-4.html">
-                    <h5 class="mt-0 mb-0">[FLASK] Render HTML và nhúng Bootstrap 4</h5>
-                </a>
-            </div>
-            <div class="summary"><p>Render <code>HTML</code> thay vì render <code>string</code> như bài trước và nhúng thư viện <code>Bootstrap 4</code>.</p></div>
-            <div class="tags mb-0">
-                    <a href="https://letrii.github.io/tag/python.html" class="badge badge-tag mr-1">#python</a>
-                    <a href="https://letrii.github.io/tag/flask.html" class="badge badge-tag mr-1">#flask</a>
-                    <a href="https://letrii.github.io/tag/html.html" class="badge badge-tag mr-1">#html</a>
-                    <a href="https://letrii.github.io/tag/css.html" class="badge badge-tag mr-1">#css</a>
-                    <a href="https://letrii.github.io/tag/js.html" class="badge badge-tag mr-1">#js</a>
-                    <a href="https://letrii.github.io/tag/jquery.html" class="badge badge-tag mr-1">#jquery</a>
-                    <a href="https://letrii.github.io/tag/bootstrap.html" class="badge badge-tag mr-1">#bootstrap</a>
-            </div>
-            <div class="clearfix">
-                <div class="float-left">
-                    <small>by</small>
-                            <small class="font-weight-bold">letrii</small>
-                    <small>·</small>
-                    <small class="text-muted">
-                        05/12/2019
-                    </small>
-                </div>
-            </div>
+            <hr>
+            <p>Dưới đây là những lưu ý, tip và trick của mình trong quá trình sử dụng <code>Apache Airflow</code> (do mình sử dụng với mục đích khác hoàn toàn nên nó sẽ không đúng với bạn trong một số trường hợp):</p>
+<ul>
+<li>File <code>DAG</code> là tập tin quan trọng nhất cũng như là bộ não của <code>airflow</code> đừng xóa nó!</li>
+<li>Thư mục chứa các file <code>DAGS</code> hạn chế càng ít file càng tốt. Vì mỗi lần <code>airflow</code> chạy, cũng như thao tác trên giao diện đều đọc vào thư mục chứa file <code>DAGS</code>.</li>
+<li>Nên tạo một môi trường <code>(virtualenv)</code> riêng cho <code>airflow</code> nếu bạn phải chạy chung với nhiều ứng dụng khác (<code>flask</code>, <code>django</code>...)</li>
+<li>Set <code>schedule_interval=None</code> nếu bạn muốn <code>DAG</code> được <code>trigger</code> bằng tay.</li>
+<li>Có thể kế thừa webapp của <code>airflow</code> để xây dựng webapp cho riêng mình vì <code>airflow</code> sử dụng <code>Flask(Blueprint)</code>.</li>
+<li>Vì có thể kế thừa webapp của <code>airflow</code> nên bạn có thể control đa số trường hợp như: update task instances, retry, stop, pause, get logs...</li>
+<li>Mô hình <code>master</code> - <code>worker</code>:</li>
+<li>Nên mount thư mục <code>dags</code> thành một thư mục chung.</li>
+<li>Các worker nên được sync chung với nhau về một thời gian cụ thể ví dụ <code>GMT+7</code>, nếu worker không được đồng bộ về thời gian nó sẽ không nhận được task.</li>
+<li>Nếu <code>workflow</code> của bạn có tính <code>priority</code> thì nên sử dụng <code>redis</code> thay vì <code>rabbitmq</code></li>
+</ul>
+<p><strong>Sẽ còn cập nhật liên tục</strong></p>
         </div>
     </div>
 
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'whatiknowdisquscom';
+    var disqus_identifier = "whatiknowdisquscom";
+    var disqus_url = "https://letrii.github.io/article/airflow-luu-y-khi-su-dung.html";
+    var disqus_title = "[Airflow] Lưu ý khi sử dụng";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view comments.</noscript>
+<!-- End Disqus -->
             </div>
             
             <div id="right-sidebar" class="col-lg-2 col-md-12 col-sm-12">
