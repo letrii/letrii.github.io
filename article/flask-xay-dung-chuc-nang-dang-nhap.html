@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://letrii.github.io/theme/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://letrii.github.io/theme/css/pygment.css">
+    <title>Sharing what I know</title>
+</head>
+
+<body>
+    <div id="header" class="container-fluid">
+        <nav class="navbar shadow navbar-expand-lg navbar-dark bg-dark pt-0 pb-0">
+            <a class="navbar-brand" href="/">
+                <span class="root">letrii@github.io:</span>
+                <span class="path">~/article/flask-xay-dung-chuc-nang-dang-nhap.html</span>
+            </a>
+        </nav>
+    </div>
+    
+    <div id="content" class="container-fluid mt-4 mb-4">
+        <div class="row">
+            <div id="left-sidebar" class="col-lg-10 col-md-12 col-sm-12">
+<div class="article card feed-card shadow mb-3">
+        <div class="card-body">
+            <div class="mb-1 title">
+                <a class="text-dark mt-0" href="https://letrii.github.io/article/flask-xay-dung-chuc-nang-dang-nhap.html">
+                    <h2 class="mt-0 mb-0">[FLASK] Xây dựng chức năng đăng nhập</h2>
+                </a>
+            </div>
+            <div class="summary"><p>Xây dựng chức năng đăng nhập sử dụng thư viện <code>Bootstrap 4</code>.</p></div>
+            <div class="tags mb-0">
+                    <a href="https://letrii.github.io/tag/python.html" class="badge badge-tag mr-1">#python</a>
+                    <a href="https://letrii.github.io/tag/flask.html" class="badge badge-tag mr-1">#flask</a>
+                    <a href="https://letrii.github.io/tag/html.html" class="badge badge-tag mr-1">#html</a>
+                    <a href="https://letrii.github.io/tag/css.html" class="badge badge-tag mr-1">#css</a>
+                    <a href="https://letrii.github.io/tag/js.html" class="badge badge-tag mr-1">#js</a>
+                    <a href="https://letrii.github.io/tag/jquery.html" class="badge badge-tag mr-1">#jquery</a>
+                    <a href="https://letrii.github.io/tag/bootstrap.html" class="badge badge-tag mr-1">#bootstrap</a>
+            </div>
+            <div class="clearfix">
+                <div class="float-left">
+                    <small>by</small>
+                            <small class="font-weight-bold">letrii</small>
+                    <small>·</small>
+                    <small class="text-muted">
+                        12/12/2019
+                    </small>
+                </div>
+            </div>
+            <hr>
+            <h3>Phần trước:</h3>
+<ul>
+<li><a href="https://letrii.github.io/article/xay-dung-website-chi-can-6-dong-voi-python.html">Xây dựng website chỉ cần 6 dòng với Python</a></li>
+<li><a href="https://letrii.github.io/article/flask-render-html-va-nhung-bootstrap-4.html">[FLASK] Render HTML và nhúng Bootstrap 4</a></li>
+<li><a href="https://letrii.github.io/article/flask-render-json-va-truyen-tham-so-paremeters.html">[FLASK] Render JSON và truyền tham số (paremeters)</a></li>
+</ul>
+<h3>Code</h3>
+<p>Tạo thư mục <code>templates</code>:</p>
+<div class="highlight"><pre><span></span><span class="go">mkdir templates</span>
+<span class="go">cd templates</span>
+</pre></div>
+
+
+<p>Tạo file <code>index.html</code> với nội dung:</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="c">&lt;!-- Required meta tags --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1 shrink-to-fit=no&quot;</span><span class="p">&gt;</span>
+
+        <span class="c">&lt;!-- Bootstrap CSS --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Simple Webapp<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Simple Webapp<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+        <span class="c">&lt;!-- Optional JavaScript --&gt;</span>
+        <span class="c">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://code.jquery.com/jquery-3.2.1.slim.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>Lúc này cấu trúc thư mục sẽ như sau:</p>
+<div class="highlight"><pre><span></span><span class="go">├── __pycache__</span>
+<span class="go">├── venv</span>
+<span class="go">├── app.py</span>
+<span class="go">└── templates</span>
+<span class="go">    └── index.html</span>
+</pre></div>
+
+
+<p>Thay đổi dòng đầu tiên của file <code>app.py</code> thành:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_template</span>
+</pre></div>
+
+
+<p>Sửa nội dung method <code>index</code> trong file <code>app.py</code> thành:</p>
+<div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;index.html&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Chạy ứng dụng, mở trình duyệt và gõ <code>http://127.0.0.1:5000</code>, kết quả:
+<img alt="first" src="/images/flask-signin-signout/first.png"></p>
+<p>Thêm nội dung vào file <code>app.py</code>:</p>
+<div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+
+
+<p>Sửa nội dung file <code>index.html</code> thành:</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="c">&lt;!-- Required meta tags --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1 shrink-to-fit=no&quot;</span><span class="p">&gt;</span>
+
+        <span class="c">&lt;!-- Bootstrap CSS --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Simple Webapp<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Simple Webapp<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+            <span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;{{ url_for(&#39;login&#39;) }}&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;POST&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;username&quot;</span><span class="p">&gt;</span>Username:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;input&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Enter username&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;username&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group&quot;</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;pwd&quot;</span><span class="p">&gt;</span>Password:<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+                    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;password&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control&quot;</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">&quot;Enter password&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;password&quot;</span><span class="p">&gt;</span>
+                <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+                <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;btn btn-primary&quot;</span><span class="p">&gt;</span>Login<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+            <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="c">&lt;!-- Optional JavaScript --&gt;</span>
+        <span class="c">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://code.jquery.com/jquery-3.2.1.slim.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p><strong>Giải thích code:</strong></p>
+<ul>
+<li>Đây chỉ là <code>HTML</code> mình dùng để làm form đăng nhập với input là <code>username</code>, <code>password</code>.</li>
+<li>Lưu ý chỗ <code>{{ url_for('login') }}</code> (sẽ sử dụng nhiều): render url tới method vừa tạo ở trên <code>login</code>. </li>
+</ul>
+<p>Kết quả:
+<img alt="second" src="/images/flask-signin-signout/second.png"></p>
+<p>Thay đổi dòng đầu tiên của file <code>app.py</code> thành:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">jsonify</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">url_for</span><span class="p">,</span> <span class="n">redirect</span>
+</pre></div>
+
+
+<p>OK, bây giờ đã có giao diện đẹp rồi tiếp theo sẽ viết phần xử lí đăng nhập. Mở file <code>app.py</code> và thay đổi nội dung ở method <code>login</code>:</p>
+<div class="highlight"><pre><span></span><span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="n">USER_DB</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="s1">&#39;admin&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;admin&#39;</span>
+    <span class="p">}</span>
+    <span class="n">form_data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span> <span class="ow">and</span> <span class="n">form_data</span><span class="p">:</span>
+        <span class="n">username</span> <span class="o">=</span> <span class="n">form_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="n">form_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">username</span> <span class="o">==</span> <span class="n">USER_DB</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">password</span> <span class="o">==</span> <span class="n">USER_DB</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;dashboard.html&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">))</span>
+</pre></div>
+
+
+<p><strong>Giải thích code:</strong></p>
+<ul>
+<li>Method <code>login</code>: khi người dùng nhập đúng <code>username</code> và <code>password</code> thì chuyển trang về <code>dashboard.html</code> còn không thì chuyển về <code>index.html</code>. Ở đây này mình chỉ sử dụng biến <code>USER_DB</code> để lưu thông tin người dùng, ở bài sau mình sẽ hướng dẫn sử dụng cơ sở dữ liệu (CSDL - database) để lưu thông tin người dùng.</li>
+</ul>
+<p>Tạo mới file <code>dashboard.html</code> trong thư mục <code>templates</code> với nội dung như sau:</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!doctype html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+        <span class="c">&lt;!-- Required meta tags --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content</span><span class="o">=</span><span class="s">&quot;width=device-width, initial-scale=1 shrink-to-fit=no&quot;</span><span class="p">&gt;</span>
+
+        <span class="c">&lt;!-- Bootstrap CSS --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;</span>
+
+        <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Simple Webapp<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Dashboard!<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+        <span class="c">&lt;!-- Optional JavaScript --&gt;</span>
+        <span class="c">&lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://code.jquery.com/jquery-3.2.1.slim.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js&quot;</span> <span class="na">integrity</span><span class="o">=</span><span class="s">&quot;sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl&quot;</span> <span class="na">crossorigin</span><span class="o">=</span><span class="s">&quot;anonymous&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>Lúc này cấu trúc thư mục sẽ như sau:</p>
+<div class="highlight"><pre><span></span><span class="go">├── __pycache__</span>
+<span class="go">├── venv</span>
+<span class="go">├── app.py</span>
+<span class="go">└── templates</span>
+<span class="go">    ├── dashboard.html</span>
+<span class="go">    └── index.html</span>
+</pre></div>
+
+
+<p>Mở trình duyệt và gõ <code>http://127.0.0.1:5000</code>, sau đó gõ <code>username</code>, <code>password</code> và nhấn nút <code>Login</code>. Nếu như bạn gõ đúng thì giao diện sẽ như sau:
+<img alt="third" src="/images/flask-signin-signout/third.png"></p>
+<p>Xong.</p>
+        </div>
+    </div>
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'whatiknowdisquscom';
+    var disqus_identifier = "whatiknowdisquscom";
+    var disqus_url = "https://letrii.github.io/article/flask-xay-dung-chuc-nang-dang-nhap.html";
+    var disqus_title = "[FLASK] Xây dựng chức năng đăng nhập";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view comments.</noscript>
+<!-- End Disqus -->
+            </div>
+            
+            <div id="right-sidebar" class="col-lg-2 col-md-12 col-sm-12">
+                <p class="font-weight-bold d-block mb-1 title">Latest tags</p>
+                <nav id="navTags" class="toc pl-0 pt-0">
+                    <nav class="nav nav-pills flex-column sidenav toc">
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/bootstrap.html">bootstrap (2)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/css.html">css (2)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/flask.html">flask (4)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/html.html">html (2)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/jquery.html">jquery (2)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/js.html">js (2)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/json.html">json (1)</a>
+                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/python.html">python (4)</a>
+                    </nav>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
