@@ -1,213 +1,192 @@
-<!doctype html>
-<html lang="en">
-
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Meo Lua Inc.</title>
+    <style type="text/css">
+        html,
+        body {
+            -webkit-font-smoothing: antialiased;
+            font-family: "Comic Sans MS", sans-serif;
+            line-height: 1.4;
+            margin: 0 auto;
+            max-width: 860px;
+            height: 100%;
+        }
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://letrii.github.io/theme/css/style.css">
-    <link rel="stylesheet" type="text/css" href="https://letrii.github.io/theme/css/pygment.css">
-    <title>Sharing what I know</title>
+        .center {
+            text-align: center;
+        }
+
+        .intro {
+            font-size: 4em;
+        }
+
+        .max {
+            display: block;
+            width: 860px;
+            word-wrap: break-word;
+        }
+
+        .bg1 {
+            background-image: url("https://i.imgur.com/YUPql5N.gif");
+        }
+
+        .bg2 {
+            background-image: url("https://i.imgur.com/SHZe50s.gif");
+        }
+
+        a {
+            color: #000000;
+        }
+
+        #wm-ipp #wm-ipp-inside {
+            margin: 0 6px;
+            border: 5px solid #000;
+            border-top: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            -moz-box-shadow: 1px 1px 4px #333;
+            -webkit-box-shadow: 1px 1px 4px #333;
+            box-shadow: 1px 1px 4px #333;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .container {
+            width: 1000px;
+            height: 100%;
+            border: 2px solid black;
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2,
+        h3,
+        p,
+        a {
+            color: yellow;
+        }
+
+        span.line {
+            color: red;
+        }
+
+        .cursor {
+            cursor: url(https://i.imgur.com/RUE567I.gif), auto;
+        }
+
+        /* @group Blink */
+        .blink {
+            -webkit-animation: blink .75s linear infinite;
+            -moz-animation: blink .75s linear infinite;
+            -ms-animation: blink .75s linear infinite;
+            -o-animation: blink .75s linear infinite;
+            animation: blink .75s linear infinite;
+        }
+
+        @-webkit-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            50.01% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @-moz-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            50.01% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @-ms-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            50.01% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @-o-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            50.01% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            50.01% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* @end */
+
+        /*for footer*/
+        #main {
+            min-height: 45vh;
+        }
+    </style>
 </head>
 
-<body>
-    <div id="header" class="container-fluid">
-        <nav class="navbar shadow navbar-expand-lg navbar-dark bg-dark pt-0 pb-0">
-            <a class="navbar-brand" href="/">
-                <span class="root">letrii@github.io:</span>
-                <span class="path">~/</span>
-            </a>
-        </nav>
+<body class="center bg2 max">
+    <div id="main">
+        <h2 id="made" style="padding-top: 40vh;">Website chưa có kinh phí để phát triển!</h2>
     </div>
-    
-    <div id="content" class="container-fluid mt-4 mb-4">
-        <div class="row">
-            <div id="left-sidebar" class="col-lg-10 col-md-12 col-sm-12">
-    <div class="card feed-card shadow mb-3">
-        <div class="card-body">
-            <div class="mb-1 title">
-                <a class="text-dark mt-0" href="https://letrii.github.io/article/airflow-luu-y-khi-su-dung.html">
-                    <h5 class="mt-0 mb-0">[Airflow] Lưu ý khi sử dụng</h5>
-                </a>
-            </div>
-            <div class="summary"><p>Những lưu ý, tip và trick khi sử dụng <code>Apache Airflow</code>.</p></div>
-            <div class="tags mb-0">
-                    <a href="https://letrii.github.io/tag/python.html" class="badge badge-tag mr-1">#python</a>
-                    <a href="https://letrii.github.io/tag/airflow.html" class="badge badge-tag mr-1">#airflow</a>
-            </div>
-            <div class="clearfix">
-                <div class="float-left">
-                    <small>by</small>
-                            <small class="font-weight-bold">letrii</small>
-                    <small>·</small>
-                    <small class="text-muted">
-                        15/12/2019
-                    </small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card feed-card shadow mb-3">
-        <div class="card-body">
-            <div class="mb-1 title">
-                <a class="text-dark mt-0" href="https://letrii.github.io/article/flask-co-so-du-lieu-database.html">
-                    <h5 class="mt-0 mb-0">[FLASK] Cơ sở dữ liệu (database)</h5>
-                </a>
-            </div>
-            <div class="summary"><p>Sử dụng cơ sở dữ liệu (CSDL - database) với thư viện <code>Flask-SQLAlchemy</code>.</p></div>
-            <div class="tags mb-0">
-                    <a href="https://letrii.github.io/tag/python.html" class="badge badge-tag mr-1">#python</a>
-                    <a href="https://letrii.github.io/tag/flask.html" class="badge badge-tag mr-1">#flask</a>
-                    <a href="https://letrii.github.io/tag/sqlalchemy.html" class="badge badge-tag mr-1">#sqlalchemy</a>
-            </div>
-            <div class="clearfix">
-                <div class="float-left">
-                    <small>by</small>
-                            <small class="font-weight-bold">letrii</small>
-                    <small>·</small>
-                    <small class="text-muted">
-                        15/12/2019
-                    </small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card feed-card shadow mb-3">
-        <div class="card-body">
-            <div class="mb-1 title">
-                <a class="text-dark mt-0" href="https://letrii.github.io/article/flask-xay-dung-chuc-nang-dang-nhap.html">
-                    <h5 class="mt-0 mb-0">[FLASK] Xây dựng chức năng đăng nhập</h5>
-                </a>
-            </div>
-            <div class="summary"><p>Xây dựng chức năng đăng nhập sử dụng thư viện <code>Bootstrap 4</code>.</p></div>
-            <div class="tags mb-0">
-                    <a href="https://letrii.github.io/tag/python.html" class="badge badge-tag mr-1">#python</a>
-                    <a href="https://letrii.github.io/tag/flask.html" class="badge badge-tag mr-1">#flask</a>
-                    <a href="https://letrii.github.io/tag/html.html" class="badge badge-tag mr-1">#html</a>
-                    <a href="https://letrii.github.io/tag/css.html" class="badge badge-tag mr-1">#css</a>
-                    <a href="https://letrii.github.io/tag/js.html" class="badge badge-tag mr-1">#js</a>
-                    <a href="https://letrii.github.io/tag/jquery.html" class="badge badge-tag mr-1">#jquery</a>
-                    <a href="https://letrii.github.io/tag/bootstrap.html" class="badge badge-tag mr-1">#bootstrap</a>
-            </div>
-            <div class="clearfix">
-                <div class="float-left">
-                    <small>by</small>
-                            <small class="font-weight-bold">letrii</small>
-                    <small>·</small>
-                    <small class="text-muted">
-                        12/12/2019
-                    </small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card feed-card shadow mb-3">
-        <div class="card-body">
-            <div class="mb-1 title">
-                <a class="text-dark mt-0" href="https://letrii.github.io/article/flask-render-json-va-truyen-tham-so-paremeters.html">
-                    <h5 class="mt-0 mb-0">[FLASK] Render JSON và truyền tham số (paremeters)</h5>
-                </a>
-            </div>
-            <div class="summary"><p>Render <code>JSON</code> thay vì render <code>string</code>, <code>HTML</code> như bài trước và cách truyền tham số với phương thức <code>GET</code>, <code>POST</code>.</p></div>
-            <div class="tags mb-0">
-                    <a href="https://letrii.github.io/tag/python.html" class="badge badge-tag mr-1">#python</a>
-                    <a href="https://letrii.github.io/tag/flask.html" class="badge badge-tag mr-1">#flask</a>
-                    <a href="https://letrii.github.io/tag/json.html" class="badge badge-tag mr-1">#json</a>
-            </div>
-            <div class="clearfix">
-                <div class="float-left">
-                    <small>by</small>
-                            <small class="font-weight-bold">letrii</small>
-                    <small>·</small>
-                    <small class="text-muted">
-                        08/12/2019
-                    </small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card feed-card shadow mb-3">
-        <div class="card-body">
-            <div class="mb-1 title">
-                <a class="text-dark mt-0" href="https://letrii.github.io/article/flask-render-html-va-nhung-bootstrap-4.html">
-                    <h5 class="mt-0 mb-0">[FLASK] Render HTML và nhúng Bootstrap 4</h5>
-                </a>
-            </div>
-            <div class="summary"><p>Render <code>HTML</code> thay vì render <code>string</code> như bài trước và nhúng thư viện <code>Bootstrap 4</code>.</p></div>
-            <div class="tags mb-0">
-                    <a href="https://letrii.github.io/tag/python.html" class="badge badge-tag mr-1">#python</a>
-                    <a href="https://letrii.github.io/tag/flask.html" class="badge badge-tag mr-1">#flask</a>
-                    <a href="https://letrii.github.io/tag/html.html" class="badge badge-tag mr-1">#html</a>
-                    <a href="https://letrii.github.io/tag/css.html" class="badge badge-tag mr-1">#css</a>
-                    <a href="https://letrii.github.io/tag/js.html" class="badge badge-tag mr-1">#js</a>
-                    <a href="https://letrii.github.io/tag/jquery.html" class="badge badge-tag mr-1">#jquery</a>
-                    <a href="https://letrii.github.io/tag/bootstrap.html" class="badge badge-tag mr-1">#bootstrap</a>
-            </div>
-            <div class="clearfix">
-                <div class="float-left">
-                    <small>by</small>
-                            <small class="font-weight-bold">letrii</small>
-                    <small>·</small>
-                    <small class="text-muted">
-                        05/12/2019
-                    </small>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card feed-card shadow mb-3">
-        <div class="card-body">
-            <div class="mb-1 title">
-                <a class="text-dark mt-0" href="https://letrii.github.io/article/xay-dung-website-chi-can-6-dong-voi-python.html">
-                    <h5 class="mt-0 mb-0">Xây dựng website chỉ cần 6 dòng với Python</h5>
-                </a>
-            </div>
-            <div class="summary"><p>Xây dựng website chỉ với 6 dòng với <code>Python</code> và <code>Flask</code>.</p></div>
-            <div class="tags mb-0">
-                    <a href="https://letrii.github.io/tag/python.html" class="badge badge-tag mr-1">#python</a>
-                    <a href="https://letrii.github.io/tag/flask.html" class="badge badge-tag mr-1">#flask</a>
-            </div>
-            <div class="clearfix">
-                <div class="float-left">
-                    <small>by</small>
-                            <small class="font-weight-bold">letrii</small>
-                    <small>·</small>
-                    <small class="text-muted">
-                        01/12/2019
-                    </small>
-                </div>
-            </div>
-        </div>
-    </div>
-
-            </div>
-            
-            <div id="right-sidebar" class="col-lg-2 col-md-12 col-sm-12">
-                <p class="font-weight-bold d-block mb-1 title">Latest tags</p>
-                <nav id="navTags" class="toc pl-0 pt-0">
-                    <nav class="nav nav-pills flex-column sidenav toc">
-                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/airflow.html">airflow (1)</a>
-                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/bootstrap.html">bootstrap (2)</a>
-                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/css.html">css (2)</a>
-                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/flask.html">flask (5)</a>
-                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/html.html">html (2)</a>
-                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/jquery.html">jquery (2)</a>
-                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/js.html">js (2)</a>
-                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/json.html">json (1)</a>
-                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/python.html">python (6)</a>
-                            <a class="nav-link py-0 px-0" href="https://letrii.github.io/tag/sqlalchemy.html">sqlalchemy (1)</a>
-                    </nav>
-                </nav>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <footer id="footer">
+        <img src="https://i.imgur.com/i6hvJjx.gif">
+        <p><a href="https://me.momo.vn/vjIyuZsvtXtZuZijTptE" target="_blank">Buy me a coffee</a></p>
+        <p>copyright &copy; meolua.com - All rights reserved.</p>
+        <span><img src="https://i.imgur.com/QkBkUkC.gif"></span>
+    </footer>
 </body>
